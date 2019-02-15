@@ -1,0 +1,24 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>esf-distributed</artifactId>
+	<name>esf-distributed</name>
+	<packaging>pom</packaging>
+	<url>http://maven.apache.org</url>
+	
+	<parent>
+		<groupId>cn.com.ut</groupId>
+		<artifactId>esf-parent</artifactId>
+		<version>0.0.6-SNAPSHOT</version>
+		<relativePath>../esf-parent/pom.xml</relativePath>
+	</parent>
+	
+	<modules>
+		<module>esf-distributed-rabbitmq</module>
+		<module>esf-distributed-redisson</module>
+		<module>esf-distributed-sequence</module>
+		<module>esf-distributed-sequence-redis</module>
+		<module>esf-distributed-zookeeper</module>
+	</modules>
+
+</project>

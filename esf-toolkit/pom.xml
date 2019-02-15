@@ -1,0 +1,24 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>esf-toolkit</artifactId>
+	<name>esf-toolkit</name>
+	<url>http://maven.apache.org</url>
+	<packaging>pom</packaging>
+	
+	<parent>
+		<groupId>cn.com.ut</groupId>
+		<artifactId>esf-parent</artifactId>
+		<version>0.0.6-SNAPSHOT</version>
+		<relativePath>../esf-parent/pom.xml</relativePath>
+	</parent>
+	
+	<modules>
+		<module>esf-toolkit-image</module>
+		<module>esf-toolkit-jsoup</module>
+		<module>esf-toolkit-pinyin4j</module>
+		<module>esf-toolkit-poi</module>
+		<module>esf-toolkit-zxing</module>
+	</modules>
+
+</project>

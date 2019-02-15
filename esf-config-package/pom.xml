@@ -1,0 +1,34 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>esf-config-package</artifactId>
+	<name>esf-config-package</name>
+	<packaging>pom</packaging>
+	<url>http://maven.apache.org</url>
+	
+	<parent>
+		<groupId>cn.com.ut</groupId>
+		<artifactId>esf-parent</artifactId>
+		<version>0.0.6-SNAPSHOT</version>
+		<relativePath>../esf-parent/pom.xml</relativePath>
+	</parent>
+	
+	<modules>
+		<module>../esf-cache</module>
+		<module>../esf-codec</module>
+		<module>../esf-core</module>
+		<module>../esf-dal</module>
+		<module>../esf-distributed</module>
+		<module>../esf-fs</module>
+		<module>../esf-index</module>
+		<module>../esf-net</module>
+		<module>../esf-pay</module>
+		<module>../esf-schedule</module>
+		<module>../esf-service-api</module>
+		<module>../esf-session</module>
+		<module>../esf-third</module>
+		<module>../esf-toolkit</module>
+		<module>../esf-web</module>
+	</modules>
+
+</project>

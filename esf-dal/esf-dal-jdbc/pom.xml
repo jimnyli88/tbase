@@ -1,0 +1,54 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>esf-dal-jdbc</artifactId>
+	<name>esf-dal-jdbc</name>
+
+	<parent>
+		<groupId>cn.com.ut</groupId>
+		<artifactId>esf-dal</artifactId>
+		<version>0.0.6-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<dependencies>
+		
+		<dependency>
+			<groupId>cn.com.ut</groupId>
+			<artifactId>esf-cache-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>cn.com.ut</groupId>
+			<artifactId>esf-codec-dom4j</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>cn.com.ut</groupId>
+			<artifactId>esf-dal-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>${esf.com.alibaba.druid}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+
+</project>

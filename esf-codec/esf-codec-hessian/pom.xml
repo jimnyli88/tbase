@@ -1,0 +1,28 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>esf-codec-hessian</artifactId>
+	<packaging>jar</packaging>
+	<name>esf-codec-hessian</name>
+	<url>http://maven.apache.org</url>
+
+	<parent>
+		<groupId>cn.com.ut</groupId>
+		<artifactId>esf-codec</artifactId>
+		<version>0.0.6-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>cn.com.ut</groupId>
+			<artifactId>esf-codec-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.caucho</groupId>
+			<artifactId>hessian</artifactId>
+			<version>4.0.53</version>
+		</dependency>
+	</dependencies>
+
+</project>

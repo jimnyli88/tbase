@@ -1,0 +1,455 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>cn.com.ut</groupId>
+	<artifactId>esf-parent</artifactId>
+	<version>0.0.6-SNAPSHOT</version>
+	<name>esf-parent</name>
+	<url>http://maven.apache.org</url>
+	<packaging>pom</packaging>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.7.RELEASE</version>
+	</parent>
+
+	<properties>
+		<esf.version>0.0.6-SNAPSHOT</esf.version>
+		<esf.spring.cloud>Finchley.SR2</esf.spring.cloud>
+		<esf.com.fasterxml.jackson>2.9.8</esf.com.fasterxml.jackson>
+		<esf.junit>4.12</esf.junit>
+		<esf.commons-beanutils>1.9.3</esf.commons-beanutils>
+		<esf.commons-cli>1.4</esf.commons-cli>
+		<esf.commons-codec>1.10</esf.commons-codec>
+		<esf.commons-io>2.6</esf.commons-io>
+		<esf.commons-logging>1.2</esf.commons-logging>
+		<esf.commons-lang3>3.8.1</esf.commons-lang3>
+		<esf.commons-lang>2.6</esf.commons-lang>
+		<esf.commons-fileupload>1.4</esf.commons-fileupload>
+		<esf.commons-configuration>1.10</esf.commons-configuration>
+		<esf.commons-collections>3.2.2</esf.commons-collections>
+		<esf.commons-math3>3.6.1</esf.commons-math3>
+		<esf.cglib-nodep>3.2.10</esf.cglib-nodep>
+		<esf.com.alibaba.druid>1.1.12</esf.com.alibaba.druid>
+		<esf.com.alibaba.fastjson>1.2.54</esf.com.alibaba.fastjson>
+		<esf.com.google.guava>20.0</esf.com.google.guava>
+		<esf.mysql-connector-java>5.1.47</esf.mysql-connector-java>
+		<esf.postgresql>9.1-901-1.jdbc4</esf.postgresql>
+		<esf.javax.servlet>3.1.0</esf.javax.servlet>
+		<esf.com.google.zxing>3.3.3</esf.com.google.zxing>
+		<esf.pinyin4j>2.5.1</esf.pinyin4j>
+		<esf.alioss>2.5.0</esf.alioss>
+		<esf.com.alipay.sdk>3.4.49.ALL</esf.com.alipay.sdk>
+		<esf.xstream>1.4.11.1</esf.xstream>
+		<esf.poi>3.15</esf.poi>
+		<esf.lombok>1.18.4</esf.lombok>
+	</properties>
+
+	<distributionManagement>
+		<repository>
+			<id>ut-release</id>
+			<name>ut release</name>
+			<url>http://hff.ut.com:8081/nexus/content/repositories/releases/</url>
+			<layout>default</layout>
+		</repository>
+		<snapshotRepository>
+			<id>ut-snapshot</id>
+			<name>ut snapshot</name>
+			<url>http://hff.ut.com:8081/nexus/content/repositories/snapshots/</url>
+			<layout>default</layout>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.3</version>
+					<configuration>
+						<source>1.8</source>
+						<target>1.8</target>
+						<compilerArgs>
+							<!-- <compilerArg>-Xbootclasspath:${java.home}/jre/lib/rt.jar</compilerArg> -->
+							<compilerArg>-Xlint:unchecked</compilerArg>
+						</compilerArgs>
+					</configuration>
+				</plugin>
+				
+				<plugin>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>2.6</version>
+					<configuration>
+						<warSourceDirectory>WebContent</warSourceDirectory>
+						<failOnMissingWebXml>false</failOnMissingWebXml>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>2.4</version>
+					<executions>
+						<execution>
+							<id>attach-sources</id>
+							<phase>install</phase>
+							<goals>
+								<goal>jar-no-fork</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+				<plugin>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>2.10.3</version>
+					<configuration>
+						<encoding>${project.build.sourceEncoding}</encoding>
+						<charset>${project.build.sourceEncoding}</charset>
+						<docencoding>${project.build.sourceEncoding}</docencoding>
+						<additionalparam>-Xdoclint:none</additionalparam>
+					</configuration>
+					<executions>
+						<execution>
+							<id>attach-docs</id>
+							<phase>deploy</phase>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- esf cache -->
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-cache-api</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-cache-ehcache</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-cache-memcached</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-cache-redis</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+
+			<!-- esf codec -->
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-codec-dom4j</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-codec-fastjson</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-codec-api</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-codec-fst</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-codec-jdk</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-codec-hessian</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+
+			<!-- esf core -->
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-core-common</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-core-concurrency</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+
+			<!-- esf dal -->
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-dal-api</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-dal-jpa</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-dal-jdbc</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-dal-mycat</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+
+			<!-- esf distributed -->
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-distributed-rabbitmq</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-distributed-redisson</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-distributed-sequence</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-distributed-sequence-redis</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-distributed-zookeeper</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+
+			<!-- esf encrypt -->
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-encrypt-api</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-encrypt-keystore</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-encrypt-message</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+
+			<!-- esf fs -->
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-fs-api</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-fs-alioss</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-fs-restful</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+
+			<!-- esf index -->
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-index-api</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+
+			<!-- esf net -->
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-net-httpclient</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-net-netty</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+
+			<!-- esf pay -->
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-pay-api</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-pay-alipay</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-pay-wxpay</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+
+			<!-- esf schedule -->
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-schedule-api</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-schedule-elastic-job</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-schedule-quartz</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-schedule-xxl-job</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+
+			<!-- esf service api -->
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-service-api</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+
+			<!-- esf session -->
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-session-redis</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-security-jwt</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+
+			<!-- esf third -->
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-third-mail</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-third-jpush</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-third-sms</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+
+			<!-- esf toolkit -->
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-toolkit-image</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-toolkit-pinyin4j</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-toolkit-poi</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-toolkit-zxing</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+
+			<!-- esf web -->
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-web-api</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-web-servlet</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.com.ut</groupId>
+				<artifactId>esf-web-springmvc</artifactId>
+				<version>${esf.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${esf.junit}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>${esf.com.alibaba.fastjson}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>${esf.javax.servlet}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${esf.spring.cloud}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>${esf.lombok}</version>
+				<optional>true</optional>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+
+</project>

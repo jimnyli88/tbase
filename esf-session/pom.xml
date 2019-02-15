@@ -1,0 +1,21 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>esf-session</artifactId>
+	<name>esf-session</name>
+	<packaging>pom</packaging>
+	<url>http://maven.apache.org</url>
+	
+	<parent>
+		<groupId>cn.com.ut</groupId>
+		<artifactId>esf-parent</artifactId>
+		<version>0.0.6-SNAPSHOT</version>
+		<relativePath>../esf-parent/pom.xml</relativePath>
+	</parent>
+	
+	<modules>
+		<module>esf-session-redis</module>
+		<module>esf-security-jwt</module>
+	</modules>
+
+</project>

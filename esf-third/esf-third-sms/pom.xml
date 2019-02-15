@@ -1,0 +1,51 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>esf-third-sms</artifactId>
+	<name>esf-third-sms</name>
+	
+	<parent>
+		<groupId>cn.com.ut</groupId>
+		<artifactId>esf-third</artifactId>
+		<version>0.0.6-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	
+	<dependencies>
+		 <dependency>
+			<groupId>cn.com.ut</groupId>
+			<artifactId>esf-core-common</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>  
+		
+		<dependency>
+		    <groupId>cn.jpush.api</groupId>
+		    <artifactId>jsms-client</artifactId>
+			<version>1.1.1</version>
+		    <exclusions>
+		    	<exclusion>
+		    		<artifactId>maven-release-plugin</artifactId>
+		    		<groupId>org.apache.maven.plugins</groupId>
+		    	</exclusion>
+		    	<exclusion>
+		    		<artifactId>slf4j-api</artifactId>
+		    		<groupId>org.slf4j</groupId>
+		    	</exclusion>
+		    	<exclusion>
+		    		<artifactId>okhttp</artifactId>
+		    		<groupId>com.squareup.okhttp3</groupId>
+		    	</exclusion>
+		    </exclusions>
+		</dependency>
+	</dependencies>
+</project>

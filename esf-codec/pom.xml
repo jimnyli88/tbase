@@ -1,0 +1,25 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>esf-codec</artifactId>
+	<name>esf-codec</name>
+	<packaging>pom</packaging>
+	<url>http://maven.apache.org</url>
+	
+	<parent>
+		<groupId>cn.com.ut</groupId>
+		<artifactId>esf-parent</artifactId>
+		<version>0.0.6-SNAPSHOT</version>
+		<relativePath>../esf-parent/pom.xml</relativePath>
+	</parent>
+	
+	<modules>
+		<module>esf-codec-api</module>
+		<module>esf-codec-dom4j</module>
+		<module>esf-codec-fastjson</module>
+		<module>esf-codec-fst</module>
+		<module>esf-codec-jdk</module>
+		<module>esf-codec-hessian</module>
+	</modules>
+
+</project>
