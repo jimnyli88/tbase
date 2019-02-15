@@ -1,0 +1,3 @@
+- ESF 0.0.6-SNAPSHOT
+- Spring Boot 2.0.7.RELEASE
+- Spring Cloud Finchley.SR2
